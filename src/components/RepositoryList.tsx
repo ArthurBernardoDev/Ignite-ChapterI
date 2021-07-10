@@ -5,9 +5,15 @@ import '../styles/repositories.scss'
 // https://api.github.com/users/ArthurBernardoDev/repos
 
 
+interface Repository {
+    name: string;
+    description: string;
+    html_url: string;
+    repo: string;
+}
 
 export function RepositoryList() {
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     useEffect(() => {
         fetch("https://api.github.com/users/ArthurBernardoDev/repos")  // fetch usado para pegar as informações da api do github
